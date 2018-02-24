@@ -7,6 +7,18 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <TextBlock HorizontalAlignment="Left" Margin="168,129,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="79" Width="130" Name="textBlockResponse">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.908"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="92,66,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Name="textBoxCity"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="254,0,0,234" VerticalAlignment="Bottom" Width="75" RenderTransformOrigin="1.18,1.925" Click="Button_Click"/>
+
     </Grid>
 </Window>

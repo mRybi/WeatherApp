@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WeatherApp.OpenWeatherMap;
+using WeatherApp.OpenWeatherMap.models;
 
 namespace WeatherApp
 {
@@ -20,9 +22,25 @@ namespace WeatherApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        GetData data = new GetData();
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private double ChangeToCelcius(double kelvin)
+        {
+            var clec = kelvin - 273.15;
+            return Math.Round(clec, 1);
+        }
+
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {            
+            var response = await data.GetForecastForCity(textBoxCity.Text);
+            if (response!=null)
+                textBlockResponse.Text = ChangeToCelcius(response.Main.Temp).ToString() + " C";
+            else
+                textBlockResponse.Text = $"Brak danych na temat miejscowosci: {textBoxCity.Text}";
         }
     }
 }
